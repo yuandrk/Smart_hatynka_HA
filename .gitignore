@@ -32,9 +32,6 @@ home-assistant.log.1
 home-assistant.log.fault
 
 image/
-scenes.yaml
-scripts.yaml
-secrets.yaml
 tts/
 ui-lovelace.yaml
 www/

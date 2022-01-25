@@ -1,0 +1,7 @@
+away:
+  alias: Поза домом 
+  sequence:
+  - service: switch.turn_off
+    entity_id: switch.salus_spe
+  - service: climate.turn_off
+    entity_id: climate.spalnia_kvartira
