@@ -1,0 +1,6 @@
+- filters:
+  include_domains:
+    - light
+
+  include_entities:
+    - binary_sensor.dveri_golovnii_vkhid

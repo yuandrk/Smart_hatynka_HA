@@ -1,0 +1,81 @@
+homeassistant:
+  name: My Smart Home
+  latitude: !secret latitude_coord
+  longitude: !secret longitude_coord
+  elevation: 216
+  unit_system: metric
+  time_zone: Europe/Kiev
+  customize: !include customize.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+
+
+
+# Викидання 
+group: !include includes/groups.yaml
+climate: !include includes/climate.yaml
+
+script: !include scripts.yaml
+scene: !include scenes.yaml
+automation: !include automations.yaml
+
+recorder: !include includes/recorder.yaml
+history: !include includes/history.yaml
+logbook: !include includes/logbook.yaml
+
+sensor: !include_dir_merge_list includes/sensor
+
+influxdb:
+  username: homeassistant
+  password: homeassistant
+  max_retries: 3
+
+sonoff:
+  username: andruk20@outlook.com
+  password: Yur@ndriuk02
+
+# Плювок до плума 
+
+rest:
+  - authentication: basic
+    scan_interval: 60
+    username: admin
+    password: admin
+    resource: "http://192.168.0.101/econet/regParams"
+    sensor:
+      - name: Температура горілки
+        device_class: temperature
+        unit_of_measurement: "°C"
+        value_template: "{{value_json['curr']['tempFeeder']| round(1)}}"
+      - name: Потужність котла
+        device_class: energy
+        unit_of_measurement: "kWh"
+        value_template: "{{value_json['curr']['boilerPowerKW']| round(1)}}"
+      - name: Температура котла
+        device_class: temperature
+        unit_of_measurement: "°C"
+        value_template: "{{value_json['curr']['tempCO']| round(1)}}"
+      - name: Температура Бойлера Plum
+        device_class: temperature
+        unit_of_measurement: "°C"
+        value_template: "{{value_json['curr']['tempCWU']| round(1)}}"  
+
+
+
+# homekit: !include includes/climate.yaml
+# homekit:
+#   - filters:
+#     include_domains:
+#       - light
+#     include_entities:
+#       - binary_sensor.dveri_golovnii_vkhid
+

@@ -1,0 +1,9 @@
+  # - platform: generic_thermostat
+  #   name: Бойлер ГВС
+  #   heater: switch.salus_001e5e0902128b7d_9
+  #   target_sensor: sensor.boiler_gvs
+  #   min_temp: 20
+  #   max_temp: 70
+  #   target_temp: 45
+  #   hot_tolerance: 2
+  #   precision: 1 

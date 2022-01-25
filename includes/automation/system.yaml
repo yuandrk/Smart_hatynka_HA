@@ -1,0 +1,11 @@
+- id: Зжимання бази данних
+  alias: 00_purge_everyday
+  initial_state: true
+  trigger:
+    - platform: time
+      at: '01:00:00'
+  action:
+    - service: recorder.purge
+      data:
+          keep_days: 3
+          repack: true

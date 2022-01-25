@@ -1,0 +1,7 @@
+  - platform: fronius
+    resource: http://192.168.0.103/
+    monitored_conditions:
+    - sensor_type: inverter
+      device: 1
+    - sensor_type: meter
+      device: 3

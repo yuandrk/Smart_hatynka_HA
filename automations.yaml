@@ -1,0 +1,154 @@
+- id: '1630085231126'
+  alias: Зменшення світла | Юра
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/0x804b50fffeb72b0e/set
+      payload: '{"brightness": 60}'
+  mode: restart
+- id: '1630086440577'
+  alias: 'Лампа ніч | Юра '
+  description: 'Виключити лампу '
+  trigger:
+  - platform: time
+    at: 01:10
+  condition: []
+  action:
+  - type: turn_off
+    device_id: switch.sonoff_1000c26393
+    entity_id: switch.sonoff_1000c26393
+    domain: switch
+  mode: restart
+- id: '1630088006083'
+  alias: Сповіщення про відкриті двері
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: df714bdac1b4c042a65aa013c9af465c
+    entity_id: binary_sensor.dveri_golovnii_vkhid
+    domain: binary_sensor
+  condition: []
+  action:
+  - device_id: 9f52e3dd2b1952d53bbc41d1fce6be71
+    domain: light
+    entity_id: light.0x804b50fffeb72b0e
+    type: flash
+  - repeat:
+      count: '2'
+      sequence:
+      - type: toggle
+        device_id: switch.sonoff_1000c26393
+        entity_id: switch.sonoff_1000c26393
+        domain: switch
+  mode: single
+- id: '1634928730028'
+  alias: '1'
+  description: ON \ OFF - DI600
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_1_single
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_1_single
+  condition: []
+  action:
+  - type: toggle
+    device_id: 9f52e3dd2b1952d53bbc41d1fce6be71
+    entity_id: light.salus_dimmer_di600
+    domain: light
+  mode: single
+- id: '1634928913103'
+  alias: '2'
+  description: On \ Off Sonoff
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_2_single
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_2_single
+  condition: []
+  action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.sonoff_1000c26393
+  mode: single
+- id: '1634929665625'
+  alias: '1 doubl '
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_1_double
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_1_double
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      device_id: 9f52e3dd2b1952d53bbc41d1fce6be71
+  mode: single
+- id: '1634929728264'
+  alias: 2 doubl
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_2_double
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_2_double
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id: light.salus_dimmer_di600
+  mode: single
+- id: '1634929948670'
+  alias: '3 onces '
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_3_single
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_3_single
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_step_pct: -10
+    target:
+      entity_id: light.salus_dimmer_di600
+  mode: single
+- id: '1634930071132'
+  alias: 4 once
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 0de1e1b7499977c44ed2c4d28e1b1f99
+    type: action
+    subtype: button_4_single
+    discovery_id: 0x04cf8cdf3c7c4ad8 action_button_4_single
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_step: 10
+    target:
+      entity_id: light.salus_dimmer_di600
+  mode: single

@@ -1,0 +1,23 @@
+- platform: template
+  sensors:
+      room_median_temperature:
+        friendly_name: 'Середня температура дома'
+        unit_of_measurement: "°C"
+        device_class: temperature
+        icon_template: mdi:temperature-celsius
+        value_template: >-
+          {{ ((
+              (state_attr('climate.bilia_kukhni_na_verkhu', 'current_temperature') | float) +
+              (state_attr('climate.bilia_televizora', 'current_temperature') | float) +
+              (state_attr('climate.kukhnia_bilia_kotelni', 'current_temperature') | float) +
+              (state_attr('climate.kukhnia_bilia_kotelni', 'current_temperature') | float) +
+              (state_attr('climate.kukhnia_tepla_pidloga', 'current_temperature') | float) +
+              (state_attr('climate.kukhnia_vasia_alina', 'current_temperature') | float) +
+              (state_attr('climate.mama_tato_2', 'current_temperature') | float) +
+              (state_attr('climate.prikhozha', 'current_temperature') | float) +
+              (state_attr('climate.radiator_bilia_kompiutera', 'current_temperature') | float) +
+              (state_attr('climate.radiator_iura', 'current_temperature') | float) +
+              (state_attr('climate.vasya_alina', 'current_temperature') | float) +
+              (state_attr('climate.velika_khata', 'current_temperature') | float) 
+            ) / 11) | round(1)
+            }}  

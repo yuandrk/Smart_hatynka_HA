@@ -1,0 +1,22 @@
+  - platform: template
+    sensors:
+        humidity_medium_doma:
+            unit_of_measurement: '%'
+            device_class: humidity 
+            friendly_name: 'Вологість Дома'
+            value_template: >-
+              {{ ((
+                  (state_attr('climate.bilia_kukhni_na_verkhu', 'current_humidity') | float) +
+                  (state_attr('climate.bilia_televizora', 'current_humidity') | float) +
+                  (state_attr('climate.kukhnia_bilia_kotelni', 'current_humidity') | float) +
+                  (state_attr('climate.kukhnia_bilia_kotelni', 'current_humidity') | float) +
+                  (state_attr('climate.kukhnia_tepla_pidloga', 'current_humidity') | float) +
+                  (state_attr('climate.kukhnia_vasia_alina', 'current_humidity') | float) +
+                  (state_attr('climate.mama_tato_2', 'current_humidity') | float) +
+                  (state_attr('climate.prikhozha', 'current_humidity') | float) +
+                  (state_attr('climate.radiator_bilia_kompiutera', 'current_humidity') | float) +
+                  (state_attr('climate.radiator_iura', 'current_humidity') | float) +
+                  (state_attr('climate.vasya_alina', 'current_humidity') | float) +
+                  (state_attr('climate.velika_khata', 'current_humidity') | float) 
+                ) / 11) | round(1)
+                }}  

@@ -1,0 +1,35 @@
+commit_interval: 120 # Кожних дві хвилини запис подій 
+purge_keep_days: 30  # Запис подій до 30 днів 
+
+exclude:
+  entities:
+    - sensor.voltage_dc_fronius_inverter_1_http_192_168_0_105
+    - sensor.voltage_ac_fronius_inverter_1_http_192_168_0_105
+    - sensor.timestamp_fronius_meter_3_http_192_168_0_105
+    - sensor.timestamp_fronius_inverter_1_http_192_168_0_105
+    - sensor.time_date
+    - sensor.time
+    - sensor.last_boot
+    - sensor.frequency_ac_fronius_inverter_1_http_192_168_0_105
+    - sensor.energy_year_fronius_inverter_1_http_192_168_0_105
+    - sensor.energy_day_fronius_inverter_1_http_192_168_0_105
+    - sensor.date
+    - sensor.current_dc_fronius_inverter_1_http_192_168_0_105
+    - sensor.current_ac_fronius_inverter_1_http_192_168_0_105
+    - sensor.last_boot_custom
+    - binary_sensor.remote_ui
+    - binary_sensor.rpi_power_status
+    - binary_sensor.updater
+    - device_tracker.iuriis_iphone
+    - sensor.ipv4_address_wlan0
+    - sensor.iuriis_iphone_activity
+    - sensor.iuriis_iphone_battery_state
+    - sensor.iuriis_iphone_bssid
+    - sensor.iuriis_iphone_connection_type
+    - sensor.iuriis_iphone_geocoded_location
+    - sensor.iuriis_iphone_geocoded_location
+    - sensor.iuriis_iphone_last_update_trigger
+    - sensor.iuriis_iphone_sim_1
+    - sensor.iuriis_iphone_ssid
+    - sensor.local_ip
+    - sensor.online_custom

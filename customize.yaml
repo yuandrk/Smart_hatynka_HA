@@ -1,0 +1,27 @@
+switch.salus_001e5e0902128b7d_9:
+  friendly_name: Бойлер ГВС
+  icon: mdi:water-boiler
+  device_class: switch
+binary_sensor.vikno_bilia_kompiutera:
+  friendly_name: Вікно біля компютера
+  icon: mdi:window-closed-variant
+  device_class: window
+binary_sensor.dveri_golovnii_vkhid:
+  friendly_name: Двері | Головний вхід
+  icon: mdi:door
+  device_class: door
+binary_sensor.vkhid_z_kotelni:
+  friendly_name: Вхід з котельні
+  icon: mdi:door
+  device_class: door
+binary_sensor.vikno_kimnata_iuri:
+  friendly_name: Вікно | Кімната Юри
+  icon: mdi:window-closed-variant
+  device_class: window
+binary_sensor.datchik_rukhu_bilia_komp_iutera:
+  friendly_name: Датчик руху біля входу
+  icon: mdi:motion-sensor
+  device_class: moving
+switch.sonoff_1000c26393:
+  device_class: outlet
+  icon: hass:lamp
