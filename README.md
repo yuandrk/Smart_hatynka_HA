@@ -17,6 +17,6 @@ The best choose for heating controls
 Raspberry Pi 4 Model B
 ZigBee to MQTT CC3125 
 
-DI600 - 1 pcs 
+[DI600](https://www.samotech.co.uk/wp-content/uploads/2019/09/SM309-Zigbee-Dimmer-Manual.pdf) - 1 pcs 
 SD600 - pcs 
 
