@@ -152,3 +152,15 @@
     target:
       entity_id: light.salus_dimmer_di600
   mode: single
+- id: '1643547124786'
+  alias: Restart system for health
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:00'
+  - platform: time
+    at: 06:00
+  condition: []
+  action:
+  - service: homeassistant.restart
+  mode: single
