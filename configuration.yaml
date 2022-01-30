@@ -17,9 +17,6 @@ default_config:
 tts:
   - platform: google_translate
 
-
-
-
 # Викидання 
 group: !include includes/groups.yaml
 climate: !include includes/climate.yaml
@@ -34,20 +31,16 @@ logbook: !include includes/logbook.yaml
 
 sensor: !include_dir_merge_list includes/sensor
 
-influxdb:
-  username: homeassistant
-  password: homeassistant
-  max_retries: 3
 
+# IoT
 sonoff:
-  username: andruk20@outlook.com
-  password: Yur@ndriuk02
+  username: !secret sonoff_account
+  password: !secret sonoff_password
 
-# Плювок до плума 
-
+# Плювок до плума Plum EcoNet24 
 rest:
   - authentication: basic
-    scan_interval: 60
+    scan_interval: 30
     username: admin
     password: admin
     resource: "http://192.168.0.101/econet/regParams"
