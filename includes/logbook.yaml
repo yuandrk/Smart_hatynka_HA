@@ -30,3 +30,5 @@ exclude:
     - sensor.iuriis_iphone_ssid
     - sensor.local_ip
     - sensor.online_custom
+    - sensor.status_code_fronius_inverter_1_192_168_0_108
+    - sensor.error_code_fronius_inverter_1_192_168_0_108

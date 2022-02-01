@@ -1,5 +1,5 @@
 commit_interval: 120 # Кожних дві хвилини запис подій 
-purge_keep_days: 30  # Запис подій до 30 днів 
+purge_keep_days: 60  # Запис подій до 60 днів 
 
 exclude:
   entities:
@@ -33,3 +33,5 @@ exclude:
     - sensor.iuriis_iphone_ssid
     - sensor.local_ip
     - sensor.online_custom
+    - sensor.error_code_fronius_inverter_1_192_168_0_108
+    - sensor.error_code_fronius_inverter_1_192_168_0_108
