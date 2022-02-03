@@ -6,6 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Kiev
   customize: !include customize.yaml
+  packages: !include_dir_merge_named includes/packages/
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -29,6 +30,10 @@ recorder: !include includes/recorder.yaml
 history: !include includes/history.yaml
 logbook: !include includes/logbook.yaml
 
+# learn what it that 
+
+
+
 sensor: !include_dir_merge_list includes/sensor
 
 
@@ -40,7 +45,7 @@ sonoff:
 # Плювок до плума Plum EcoNet24 
 rest:
   - authentication: basic
-    scan_interval: 30
+    scan_interval: 60
     username: admin
     password: admin
     resource: "http://192.168.0.101/econet/regParams"
@@ -62,7 +67,16 @@ rest:
         unit_of_measurement: "°C"
         value_template: "{{value_json['curr']['tempCWU']| round(1)}}"  
 
+telegram_bot: 
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids: 
+      - !secret telegram_id
 
+notify:
+  - name: telegram_id_1
+    platform: telegram
+    chat_id: !secret telegram_id
 
 # homekit: !include includes/climate.yaml
 # homekit:

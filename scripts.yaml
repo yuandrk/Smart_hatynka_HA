@@ -1,1 +1,8 @@
-{}
+'1643905972418':
+  sequence:
+  - service: notify.telegram_id_1
+    data:
+      message: System uptime is {{ states('sensor.last_boot_custom') }}
+  mode: single
+  icon: mdi:devices
+  alias: 'TG | Uptime system '

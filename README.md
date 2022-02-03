@@ -1,9 +1,7 @@
 
 # Welcome to my own smarthome
-
 HomeAssistant and HomeKit integration bridge from HA,
-
-### Devices:
+### Devices
 #### Heating controls 
 * SALUS CONTROLS:
 	* [UGE600](https://salus-controls.eu/product-card/5/UGE600) - 1 psc
@@ -16,21 +14,24 @@ HomeAssistant and HomeKit integration bridge from HA,
 	* RX10RF - 1 pcs 
 	* MS600 - 1 psc 
 	* OS600 - 3 psc
-
-* Plum EcoNet 300 
-
+ 
+* Plum:
+    * Plum EcoNet 300 
 >Use local pulling integration [SALUS IT600](https://github.com/jvitkauskas/homeassistant_salus) from UGE 600 Gateway
 The best choose for heating controls
 
 Raspberry Pi 4 Model B
 ZigBee to MQTT CC3125
+
 * [DI600](https://www.samotech.co.uk/wp-content/uploads/2019/09/SM309-Zigbee-Dimmer-Manual.pdf) - 1 pcs
 * SD600 - 1 pcs
-* Aqara Opple switch 2 bands  
+* Aqara Opple switch 2 bands
 * Silvercrest Smart Plug
 
-To do : 
-- [ ] SolarNet 
-- [ ] Create dashboard of boiler room 
-- [ ] Sort by HomeKit system 
-- [ ] to do next list 
+To do :
+* [ ] SolarNet
+* [ ] Create dashboard of boiler room
+* [ ] Sort by HomeKit system
+* [ ] learn packages
+* [ ] add telegram notify
+* [ ] to do next list
