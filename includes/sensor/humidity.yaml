@@ -18,5 +18,5 @@
                   (state_attr('climate.radiator_iura', 'current_humidity') | float) +
                   (state_attr('climate.vasya_alina', 'current_humidity') | float) +
                   (state_attr('climate.velika_khata', 'current_humidity') | float) 
-                ) / 11) | round(1)
+                ) / 12) | round(1)
                 }}  

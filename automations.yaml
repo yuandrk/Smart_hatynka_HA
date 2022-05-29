@@ -24,29 +24,6 @@
     entity_id: switch.sonoff_1000c26393
     domain: switch
   mode: restart
-- id: '1630088006083'
-  alias: Сповіщення про відкриті двері
-  description: ''
-  trigger:
-  - type: opened
-    platform: device
-    device_id: df714bdac1b4c042a65aa013c9af465c
-    entity_id: binary_sensor.dveri_golovnii_vkhid
-    domain: binary_sensor
-  condition: []
-  action:
-  - device_id: 9f52e3dd2b1952d53bbc41d1fce6be71
-    domain: light
-    entity_id: light.0x804b50fffeb72b0e
-    type: flash
-  - repeat:
-      count: '2'
-      sequence:
-      - type: toggle
-        device_id: switch.sonoff_1000c26393
-        entity_id: switch.sonoff_1000c26393
-        domain: switch
-  mode: single
 - id: '1634928730028'
   alias: '1'
   description: ON \ OFF - DI600

@@ -26,6 +26,8 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 automation: !include automations.yaml
 
+switch: !include includes/switch.yaml
+
 recorder: !include includes/recorder.yaml
 history: !include includes/history.yaml
 logbook: !include includes/logbook.yaml
@@ -41,13 +43,13 @@ sonoff:
 
 # DataBase Influx
 influxdb:  
-host: 192.168.0.137
-port: 8086
-database: homeassistant
-username: !secret influx_login
-password: !secret influx_pass
-max_retries: 3
-default_measurement: state
+  host: 192.168.0.137
+  port: 8086
+  database: homeassistant
+  username: !secret influx_login
+  password: !secret influx_pass
+  max_retries: 3
+  default_measurement: state
 
 # Polling control Plum EcoNet24 by Plum
 rest:

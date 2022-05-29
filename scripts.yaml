@@ -6,3 +6,44 @@
   mode: single
   icon: mdi:devices
   alias: 'TG | Uptime system '
+clime_turn_off:
+  alias: Clime turn OFF
+  sequence:
+  - service: climate.set_preset_mode
+    data:
+      preset_mode: 'Off'
+    target:
+      entity_id:
+      - climate.bilia_kukhni_na_verkhu
+      - climate.bilia_televizora
+      - climate.kukhnia_bilia_kotelni
+      - climate.kukhnia_tepla_pidloga
+      - climate.kukhnia_vasia_alina
+      - climate.mama_tato_2
+      - climate.prikhozha
+      - climate.radiator_bilia_kompiutera
+      - climate.radiator_iura
+      - climate.vasya_alina
+      - climate.velika_khata
+  mode: single
+  icon: mdi:radiator-off
+clime_turn_on:
+  alias: Clime turn ON
+  sequence:
+  - service: climate.turn_on
+    data: {}
+    target:
+      entity_id:
+      - climate.bilia_kukhni_na_verkhu
+      - climate.bilia_televizora
+      - climate.kukhnia_bilia_kotelni
+      - climate.kukhnia_tepla_pidloga
+      - climate.kukhnia_vasia_alina
+      - climate.mama_tato_2
+      - climate.prikhozha
+      - climate.radiator_bilia_kompiutera
+      - climate.radiator_iura
+      - climate.vasya_alina
+      - climate.velika_khata
+  mode: single
+  icon: mdi:radiator
