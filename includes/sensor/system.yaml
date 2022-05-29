@@ -17,14 +17,22 @@
       arg: /
     - type: processor_temperature
 
-  # - platform: sql
-  #   db_url: mysql://hass:hass@core-mariadb/homeassistant?charset=utf8
-  #   queries:
-  #     - name: Maria DB size
-  #       query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
-  #       column: 'value'
-  #       unit_of_measurement: MB
-
+  - platform: influxdb
+    host: 192.168.0.137
+    port: 8086
+    username: admin
+    password: admin
+    scan_interval: 3600
+    queries:
+      - name: InfluxDB Database Size
+        unit_of_measurement: MB
+        value_template: "{{ (value | float(0) / 1024 /1024) | round(1) }}"
+        group_function: sum
+        measurement: '"monitor"."shard"'
+        database: _internal
+        where: '"database"=''homeassistant'' AND time > now() - 5m'
+        field: diskBytes
+      
   - platform: template
     sensors:
       last_boot_custom:

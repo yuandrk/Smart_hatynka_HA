@@ -37,6 +37,8 @@ ui-lovelace.yaml
 www/
 zigbee2mqtt/
 hacs/
+custom_components/
+custom_components/**/*.py 
 
 .HA_VERSION
 .cloud/
@@ -46,3 +48,9 @@ hacs/
 .vscode/
 H43HCK~5
 H4HN0S~H
+6RSPE~Z
+gitignore
+6RSPE~Z
+DSBZV~D
+9TBAN~7
+D0J5V~M

@@ -30,9 +30,6 @@ recorder: !include includes/recorder.yaml
 history: !include includes/history.yaml
 logbook: !include includes/logbook.yaml
 
-# learn what it that 
-
-
 
 sensor: !include_dir_merge_list includes/sensor
 
@@ -42,7 +39,17 @@ sonoff:
   username: !secret sonoff_account
   password: !secret sonoff_password
 
-# Плювок до плума Plum EcoNet24 
+# DataBase Influx
+influxdb:  
+host: 192.168.0.137
+port: 8086
+database: homeassistant
+username: !secret influx_login
+password: !secret influx_pass
+max_retries: 3
+default_measurement: state
+
+# Polling control Plum EcoNet24 by Plum
 rest:
   - authentication: basic
     scan_interval: 60

@@ -6,12 +6,3 @@
         friendly_name: 'Power photovoltaics in kWh'
         value_template: "{{'%0.2f'|format(states('sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_108')|float / 1000) }}"
         
-
-# - platform: template
-#   sensor:
-#     power_photoltaics:
-#         friendly_name: "Power photovoltaics in kWh"
-#         entity_id:
-#          - sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_108
-#         unit_of_measurement: "kWh"
-#         state: "{{'%0.2f'|format(states('sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_108')|float / 1000) }}"
